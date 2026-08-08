@@ -1,6 +1,6 @@
 # MRS DIRB PRO v2.0
 
-> 🔍 Gelişmiş Asenkron Dizin Keşif Aracı
+> 🔍 Advanced Asynchronous Directory Discovery Tool
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
@@ -14,20 +14,20 @@
 ╚═══════════════════════════════════════════════════════════════════════╝
 ```
 
-## ✨ Özellikler
+## ✨ Features
 
-| Özellik | Açıklama |
+| Feature | Description |
 |---------|----------|
-| 🚀 **Asenkron Tarama** | aiohttp ile yüksek performanslı paralel istekler |
-| 🎭 **Çoklu Mod** | Normal, Stealth, Aggressive modları |
-| 🔄 **Recursive** | Alt dizinleri otomatik keşfetme |
-| 🛡️ **WAF Bypass** | Rastgele User-Agent, gecikme, stealth modu |
-| 🔐 **Hassas Veri Tespiti** | API key, password, token otomatik algılama |
-| 📊 **Detaylı Raporlama** | JSON ve TXT formatında çıktı |
-| 🎯 **Soft 404 Tespiti** | Sahte 404 yanıtlarını filtreleme |
-| 🌐 **Proxy Desteği** | Burp, ZAP gibi araçlarla entegrasyon |
+| 🚀 **Async Scanning** | High-performance parallel requests powered by `aiohttp` |
+| 🎭 **Multi-Mode** | Normal, Stealth, and Aggressive scanning modes |
+| 🔄 **Recursive** | Automatic discovery of subdirectories |
+| 🛡️ **WAF Bypass** | Random User-Agents, custom delays, and stealth features |
+| 🔐 **Sensitive Data Detection** | Automatic detection of API keys, passwords, and tokens |
+| 📊 **Detailed Reporting** | Output results in JSON and TXT formats |
+| 🎯 **Soft 404 Detection** | Smart filtering of fake 404 responses |
+| 🌐 **Proxy Support** | Easy integration with tools like Burp Suite or ZAP |
 
-## 📦 Kurulum
+## 📦 Installation
 
 ### Windows
 ```powershell
@@ -40,92 +40,92 @@ chmod +x Id.bash
 ./Id.bash
 ```
 
-### Manuel
+### Manual
 ```bash
 pip install aiohttp rich
 ```
 
-## 🚀 Kullanım
+## 🚀 Usage
 
-### Temel Kullanım
+### Basic Usage
 ```bash
-python mrs_dirb_pro.py https://hedef.com
+python mrs_dirb_pro.py https://target.com
 ```
 
-### Gelişmiş Örnekler
+### Advanced Examples
 
 ```bash
-# Özel wordlist ile
-python mrs_dirb_pro.py https://hedef.com -w custom.txt
+# Using a custom wordlist
+python mrs_dirb_pro.py https://target.com -w custom.txt
 
-# Yüksek hızda tarama (100 thread)
-python mrs_dirb_pro.py https://hedef.com -t 100
+# High-speed scanning (100 threads)
+python mrs_dirb_pro.py https://target.com -t 100
 
-# Stealth mod (WAF bypass)
-python mrs_dirb_pro.py https://hedef.com -m stealth
+# Stealth mode (WAF bypass)
+python mrs_dirb_pro.py https://target.com -m stealth
 
-# Uzantı ekleme
-python mrs_dirb_pro.py https://hedef.com -x .php,.html,.bak,.old
+# Adding extensions
+python mrs_dirb_pro.py https://target.com -x .php,.html,.bak,.old
 
-# Recursive tarama
-python mrs_dirb_pro.py https://hedef.com -r -d 3
+# Recursive scanning (Depth 3)
+python mrs_dirb_pro.py https://target.com -r -d 3
 
-# Proxy kullanımı
-python mrs_dirb_pro.py https://hedef.com -p http://127.0.0.1:8080
+# Using a proxy
+python mrs_dirb_pro.py https://target.com -p http://127.0.0.1:8080
 
-# Cookie ile
-python mrs_dirb_pro.py https://hedef.com -c "session=abc123; auth=xyz"
+# Scanning with Cookies
+python mrs_dirb_pro.py https://target.com -c "session=abc123; auth=xyz"
 
-# Sonuçları kaydet
-python mrs_dirb_pro.py https://hedef.com -o sonuclar
+# Save results to a folder
+python mrs_dirb_pro.py https://target.com -o results_folder
 ```
 
-## 📋 Parametreler
+## 📋 Parameters
 
-| Parametre | Kısa | Açıklama | Varsayılan |
+| Parameter | Short | Description | Default |
 |-----------|------|----------|------------|
-| `--wordlist` | `-w` | Wordlist dosyası | robots.txt |
-| `--threads` | `-t` | Eşzamanlı istek sayısı | 50 |
-| `--timeout` | `-T` | İstek timeout (saniye) | 10 |
-| `--delay` | `-D` | İstekler arası gecikme | 0 |
-| `--mode` | `-m` | Tarama modu (normal/stealth/aggressive) | normal |
-| `--user-agent` | `-u` | Özel User-Agent | Rastgele |
-| `--cookie` | `-c` | Cookie değeri | - |
-| `--header` | `-H` | Özel header (Key:Value) | - |
-| `--extensions` | `-x` | Uzantılar (.php,.html) | - |
-| `--exclude` | `-e` | Hariç tutulacak HTTP kodları | 404 |
-| `--follow` | `-f` | Yönlendirmeleri takip et | False |
-| `--recursive` | `-r` | Recursive tarama | False |
-| `--depth` | `-d` | Recursive derinlik | 3 |
+| `--wordlist` | `-w` | Path to wordlist file | robots.txt |
+| `--threads` | `-t` | Number of concurrent requests | 50 |
+| `--timeout` | `-T` | Request timeout (seconds) | 10 |
+| `--delay` | `-D` | Delay between requests | 0 |
+| `--mode` | `-m` | Scan mode (normal/stealth/aggressive) | normal |
+| `--user-agent` | `-u` | Custom User-Agent string | Random |
+| `--cookie` | `-c` | Cookie value | - |
+| `--header` | `-H` | Custom header (Key:Value) | - |
+| `--extensions` | `-x` | Extensions to append (.php,.html) | - |
+| `--exclude` | `-e` | HTTP codes to exclude | 404 |
+| `--follow` | `-f` | Follow HTTP redirects | False |
+| `--recursive` | `-r` | Enable recursive scanning | False |
+| `--depth` | `-d` | Maximum recursion depth | 3 |
 | `--proxy` | `-p` | Proxy URL | - |
-| `--insecure` | `-k` | SSL doğrulama | False |
-| `--output` | `-o` | Çıktı dosyası adı | - |
+| `--insecure` | `-k` | Skip SSL verification | False |
+| `--output` | `-o` | Output filename/folder | - |
 
 ## 🛠️ Wordlist Optimizer
 
-Wordlist'lerinizi optimize edin:
+Optimize your wordlists for better performance:
 
 ```bash
-# Temel optimizasyon
+# Basic optimization
 python wordlist_optimizer.py robots.txt
 
-# Uzantı ekleme
+# Append extensions
 python wordlist_optimizer.py wordlist.txt -x .php,.html,.bak
 
-# Min/Max uzunluk
+# Filter by Min/Max length
 python wordlist_optimizer.py wordlist.txt --min 3 --max 50
 
-# Analiz
+# Analyze wordlist
 python wordlist_optimizer.py wordlist.txt --analyze
 
-# Yaygın yollar listesi oluştur
+# Generate common paths list
 python wordlist_optimizer.py --generate-common
 
-# Birden fazla listeyi birleştir
+# Merge multiple lists
 python wordlist_optimizer.py --merge list1.txt list2.txt -o merged.txt
 ```
 
-## 📊 Çıktı Örneği
+## 📊 Output Example
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════╗
@@ -166,33 +166,33 @@ python wordlist_optimizer.py --merge list1.txt list2.txt -o merged.txt
     • TXT: results.txt
 ```
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 mrs_dirbuster/
-├── mrs_dirb_pro.py        # Ana tarama motoru (GELİŞTİRİLMİŞ)
-├── mrs_dirb.py            # Eski versiyon (legacy)
-├── wordlist_optimizer.py  # Wordlist optimizasyon aracı (YENİ)
-├── install.ps1            # Windows kurulum scripti (YENİ)
-├── Id.bash                # Linux kurulum scripti
-├── mrs_dirb.txt           # ASCII banner koleksiyonu
-├── robots.txt             # Varsayılan wordlist (4750+ yol)
-└── README.md              # Bu dosya
+├── mrs_dirb_pro.py        # Main scanning engine (ENHANCED)
+├── mrs_dirb.py            # Legacy version
+├── wordlist_optimizer.py  # Wordlist optimization tool (NEW)
+├── install.ps1            # Windows installation script (NEW)
+├── Id.bash                # Linux installation script
+├── mrs_dirb.txt           # ASCII banner collection
+├── robots.txt             # Default wordlist (4750+ paths)
+└── README.md              # Documentation
 ```
 
-## ⚠️ Yasal Uyarı
+## ⚠️ Legal Disclaimer
 
-Bu araç sadece **yasal ve yetkili** güvenlik testleri için tasarlanmıştır. İzinsiz sistemlere erişim girişimi yasadışıdır.
+This tool is designed for legal and authorized security testing purposes only. Attempting to access systems without prior permission is illegal.
 
-- ✅ Kendi sistemlerinizi test edin
-- ✅ İzin alınmış sistemleri test edin
-- ✅ Bug bounty programlarında kullanın
-- ❌ İzinsiz sistemlere saldırmayın
+- ✅ Test your own systems
+- ✅ Test systems you have explicit written permission for
+- ✅ Use for Bug Bounty programs
+- ❌ Do not use for unauthorized attacks
 
-## 📜 Lisans
+## 📜 License
 
-MIT License - Eğitim ve araştırma amaçlıdır.
+MIT License - For educational and research purposes.
 
 ---
 
-**MRS DIRB PRO v2.0** | Cemal Kanaç Tarafından Geliştirildi ❤️ 
+**MRS DIRB PRO v2.0** | Developed with ❤️ by Cemal Kanaç
